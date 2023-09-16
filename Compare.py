@@ -21,4 +21,4 @@ def get_container(item_list):
     elif total < SC40:
         return "SC40"
     else:
-        return "No container can fit all this..."
+        return "Requires multiple containers."
