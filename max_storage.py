@@ -1,3 +1,6 @@
+import array 
+import numpy as np
+
 '''
 The goal for our plan
 is given a cubic area, choose the best container for those shipment
@@ -6,7 +9,9 @@ the output will be in a form for users to load up the items.
 
 '''
 class max_storage:
-    def item_list(self, item_list):
+    a = np.matrix('0 0 0 0 0 0 0 0 ; 0 0 0 0 0 0 0 0 ; 0 0 0 0 0 0 0 0 ; 0 0 0 0 0 0 0 0 ; 1 1 1 1 0 0 0 0 ; 1 1 1 1 0 0 0 0 ; 1 1 1 1 0 0 0 0 ; 1 1 1 1 0 0 0 0')
+    print(a)
+"""    def item_list(self, item_list):
 
 
     # Sort the list of items by cubic area in descending order and return the sorted list
@@ -37,9 +42,17 @@ class max_storage:
         
     # Given the list of items and storage containers, verify you can fit each items into the containers
     def tetris(item_list, storage_containers):
+        container = []
+        iteration = 0
+        storage_count = item_list.size
         length = storage_containers.length
         height = storage_containers.height
         width = storage_containers.width
         current_capacity_length = length
         current_capacity_height = height
         current_capacity_width = width
+        while storage_count != 0:
+            # add item, subtract each dimension
+            if current_capacity_height >= item_list[iteration] and current_capacity_length >= item_list[iteration] and current_capacity_width >= item_list[iteration]:
+                container.append(item_list[iteration]) 
+"""
