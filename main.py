@@ -1,12 +1,9 @@
 from product_maker import *
 from Compare import *
-from next_product import *
 
-active = True
+# User inputs all products needed for delivery
+delivery = create_product()
 
-while active:
-    print(Enter product details:)
-    name = input("Name: ")
-    length = input("Length (inches): ")
-    width = input("Width (inches): ")
-    height = input("Height (inches): ")
+# Determine the best container to fit delivery
+print(get_container(delivery))
+

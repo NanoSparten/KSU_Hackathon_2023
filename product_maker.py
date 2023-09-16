@@ -1,9 +1,9 @@
 class Product:
     def __init__(self, name, length, width, height, weight, hazard):
         self.name = name
-        self.length = int(length)/12
-        self.width = int(width)/12
-        self.height = int(height)/12
+        self.length = int(length)
+        self.width = int(width)
+        self.height = int(height)
         self.weight = int(weight)
         self.hazardous = hazard
         self.volume = int(self.length) * int(self.width) * int(self.height)
@@ -14,29 +14,33 @@ class Product:
                "\nHazardous: " + str(self.hazardous)
 
 
-def create_product(name, length, width, height, weight, hazard):
+def create_product():
     products = []
+    active = True
 
-    # Prompts to enter product details
-    p_name = name
-    p_length = length
-    p_width = width
-    p_height = height
-    p_weight = weight
-    p_hazardous = hazard
-    if p_hazardous == 'y':
-        p_hazardous = True
-    elif p_hazardous == 'n':
-        p_hazardous = False
+    print("Enter product details:")
+    while active:
+        # Prompts to enter product details
+        p_name = input("Name: ")
+        p_length = input("Length (ft): ")
+        p_width = input("Width (ft): ")
+        p_height = input("Height (ft): ")
+        p_weight = input("Weight (lbs): ")
+        p_hazardous = input("Hazardous? (y/n): ")
+        if p_hazardous == 'y':
+            p_hazardous = True
+        elif p_hazardous == 'n':
+            p_hazardous = False
+        p_quantity = input("Quantity: ")
 
-    # Create product object with product information
-    p1 = Product(p_name, p_length, p_width, p_height, p_weight, p_hazardous)
+        # Create product object and add object to product list
+        for number in range(int(p_quantity)):
+            p1 = Product(p_name, p_length, p_width, p_height, p_weight, p_hazardous)
+            products.append(p1)
 
-    # Add object to product list
-    products.append(p1)
-
-    user_input = input("\nDo you want to add another product? (y/n) ")
-    if user_input == 'n':
-        active = False
+        # Ask user to add more product or not
+        user_input = input("Do you want to add another product? (y/n): ")
+        if user_input == 'n':
+            break
 
     return products
