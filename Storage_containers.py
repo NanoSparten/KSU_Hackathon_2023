@@ -41,7 +41,6 @@ def storage_unit():
     length = 20
     height = 8
     width = 10
-    cubic_area = length * height * width
 
 
 def pallets():
