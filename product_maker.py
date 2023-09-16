@@ -9,11 +9,12 @@ class Product:
         self.volume = int(self.length) * int(self.width) * int(self.height)
 
     def __str__(self):
-        return "\nName: " + self.name + "\nDimensions (L x W x H): " + str(self.length) + "ft x " + str(self.width)\
+        return "\nName: " + self.name + "\nDimensions (L x W x H): " + str(self.length) + "ft x " + str(self.width) \
                + "ft x " + str(self.height) + " ft" + "\nVolume: " + str(self.volume) + " cubic ft" + \
                "\nHazardous: " + str(self.hazardous)
 
 
+# Method for users to manually input product information
 def create_product():
     products = []
     active = True
@@ -42,5 +43,18 @@ def create_product():
         user_input = input("Do you want to add another product? (y/n): ")
         if user_input == 'n':
             break
+
+    return products
+
+
+# Overloaded method for product creation
+def create_product(name, length, width, height, weight, hazard):
+    products = []
+    p_quantity = input("Quantity for " + name + ": ")
+
+    # Create product object and add object to product list
+    for number in range(int(p_quantity)):
+        p1 = Product(name, length, width, height, weight, hazard)
+        products.append(p1)
 
     return products
